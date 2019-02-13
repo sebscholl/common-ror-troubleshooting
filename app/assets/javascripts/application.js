@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+const methods = {
+  add (a=4) {
+    return a + 2
+  }
+}
