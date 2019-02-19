@@ -1,5 +1,3 @@
-require 'super_module'
-
 class Event < ApplicationRecord
-  include SuperModule
+  include ::SuperModule
 end
