@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   resources :events, param: :title
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  match '*_missing_page', to: 'pages#not_found', via: :all
 end

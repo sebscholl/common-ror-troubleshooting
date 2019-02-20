@@ -1,6 +1,29 @@
-<h1>All Events</h1>
+<!-- <h1>All Events</h1>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.title %></li>
+  <% end %>
+</ul> -->
+
+<!-- <h1>All Events</h1>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.prettify_name %></li>
+  <% end %>
+</ul> -->
+
+<!-- <h1>All Events</h1>
 <ul>
   <% @events.each do |event| %>
     <li><%= link_to event.prettify_name, event_path(event.title) %></li>
+  <% end %>
+</ul> -->
+
+<h1>All Events</h1>
+<ul>
+  <% @events.each do |event| %>
+    <% cache event do %>
+      <%= render 'events/event_details', event: event %>
+    <% end %>
   <% end %>
 </ul>
