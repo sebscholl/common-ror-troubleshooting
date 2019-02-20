@@ -6,12 +6,22 @@ class PagesController < ApplicationController
   #   end
   # end
 
+  # def index
+  #   @events = Event.all
+  #   @producers = Producer.all
+
+  #   if params[:search]
+  #     @events = @events.select { |event| event.producer.title == params[:search] }
+  #   end
+  # end
+
   def index
-    @events = Event.all
     @producers = Producer.all
 
     if params[:search]
-      @events = @events.select { |event| event.producer.title == params[:search] }
+      @events = Event.includes(:producer).where(producers: { title: params[:search] })
+    else
+      @events = Event.all
     end
   end
 
