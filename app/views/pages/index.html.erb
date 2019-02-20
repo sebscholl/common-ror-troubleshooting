@@ -19,11 +19,24 @@
   <% end %>
 </ul> -->
 
-<h1>All Events</h1>
-<ul>
-  <% @events.each do |event| %>
-    <% cache event do %>
-      <%= render 'events/event_details', event: event %>
+<h1>All Producers</h1>
+
+<div style="max-height: 100px; overflow-y: scroll;">
+  <ul>
+    <% @producers.each do |pro| %>
+      <li><%= link_to pro.title, "/?search=#{pro.title}" %></li>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
+
+<h1>All Events</h1>
+
+<div style="max-height: 400px; overflow-y: scroll;">
+  <ul>
+    <% @events.each do |event| %>
+      <% cache event do %>
+        <%= render 'events/event_details', event: event %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
